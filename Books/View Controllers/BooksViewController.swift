@@ -19,12 +19,22 @@ final class BooksViewController: UIViewController {
                 print("unable to add persistent store")
                 print("\(error), \(error.localizedDescription)")
             } else {
-                print(persistentStoreDescription.url)
+                //print(persistentStoreDescription.url)
                 self?.fetchBooks()
 
                 //print(persistentStoreDescription.url, persistentStoreDescription.type)
             }
         }
+
+        NotificationCenter.default.addObserver(forName: .NSManagedObjectContextDidSave,
+                                               object: persistentContainer.viewContext,
+                                               queue: .main){ [weak self] _ in
+            self?.fetchBooks()
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,7 +44,18 @@ final class BooksViewController: UIViewController {
     }
 
     private func fetchBooks() {
-        print(persistentContainer.viewContext)
+        //print(persistentContainer.viewContext)
+        let fetchRequest: NSFetchRequest<Book> = Book.fetchRequest()
+
+        persistentContainer.viewContext.perform {
+            do {
+                let result = try fetchRequest.execute()
+
+                self.booksLabel.text = "\(result.count) Books"
+            } catch {
+                print("unable to execute fetch request, \(error)")
+            }
+        }
     }
     
 }
