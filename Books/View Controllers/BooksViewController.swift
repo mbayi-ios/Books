@@ -19,9 +19,17 @@ final class BooksViewController: UIViewController {
                 print("unable to add persistent store")
                 print("\(error), \(error.localizedDescription)")
             } else {
+                print(persistentStoreDescription.url)
                 self?.fetchBooks()
+
                 //print(persistentStoreDescription.url, persistentStoreDescription.type)
             }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AddBookViewController {
+            viewController.managedObjectContext = persistentContainer.viewContext
         }
     }
 

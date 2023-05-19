@@ -1,11 +1,5 @@
-//
-//  AddBookViewController.swift
-//  Books
-//
-//  Created by Bart Jacobs on 21/01/2021.
-//
-
 import UIKit
+import CoreData
 
 final class AddBookViewController: UIViewController {
 
@@ -15,9 +9,26 @@ final class AddBookViewController: UIViewController {
     @IBOutlet private var authorTextField: UITextField!
 
     // MARK: - Actions
-    
+
+    var managedObjectContext: NSManagedObjectContext?
+
     @IBAction func addBook(_ sender: Any) {
-        
+        guard let managedObjectContext = managedObjectContext else {
+            fatalError("No Managed object context available")
+        }
+
+        let book = Book(context: managedObjectContext)
+
+        book.title = titleTextField.text
+        book.author = authorTextField.text
+
+        do {
+            try managedObjectContext.save()
+
+            dismiss(animated: true)
+        } catch {
+            print("unable to save Book, \(error)")
+        }
     }
 
 }
