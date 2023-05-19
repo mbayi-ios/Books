@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89AF88582A1783EF00ACC91A /* Books.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89AF88562A1783EF00ACC91A /* Books.xcdatamodeld */; };
 		CCF2D14025B9C35A00B15452 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF2D13F25B9C35A00B15452 /* AppDelegate.swift */; };
 		CCF2D14225B9C35A00B15452 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF2D14125B9C35A00B15452 /* SceneDelegate.swift */; };
 		CCF2D14425B9C35A00B15452 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF2D14325B9C35A00B15452 /* BooksViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89AF88572A1783EF00ACC91A /* Books.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Books.xcdatamodel; sourceTree = "<group>"; };
 		CCF2D13C25B9C35A00B15452 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF2D13F25B9C35A00B15452 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF2D14125B9C35A00B15452 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89AF88552A1783C200ACC91A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				89AF88562A1783EF00ACC91A /* Books.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		CCF2D13325B9C35A00B15452 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		CCF2D13E25B9C35A00B15452 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				89AF88552A1783C200ACC91A /* Core Data */,
 				CCF2D15725B9C3AF00B15452 /* Delegates */,
 				CCF2D15825B9C3B700B15452 /* View Controllers */,
 				CCF2D15A25B9C3D900B15452 /* Storyboards */,
@@ -182,6 +193,7 @@
 			files = (
 				CCF2D14425B9C35A00B15452 /* BooksViewController.swift in Sources */,
 				CCF2D15525B9C3AA00B15452 /* AddBookViewController.swift in Sources */,
+				89AF88582A1783EF00ACC91A /* Books.xcdatamodeld in Sources */,
 				CCF2D14025B9C35A00B15452 /* AppDelegate.swift in Sources */,
 				CCF2D14225B9C35A00B15452 /* SceneDelegate.swift in Sources */,
 			);
@@ -385,6 +397,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89AF88562A1783EF00ACC91A /* Books.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89AF88572A1783EF00ACC91A /* Books.xcdatamodel */,
+			);
+			currentVersion = 89AF88572A1783EF00ACC91A /* Books.xcdatamodel */;
+			path = Books.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CCF2D13425B9C35A00B15452 /* Project object */;
 }
